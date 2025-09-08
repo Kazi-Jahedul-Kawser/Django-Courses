@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}<title>album</title>{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{album|crispy}}
+    <input class="btn btn-secondary" type="submit" value="Sumbit">
+</form>
+
+{% endblock content %}

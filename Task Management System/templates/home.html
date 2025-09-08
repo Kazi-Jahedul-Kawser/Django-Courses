@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} home{% endblock title %}
+{% block content %}
+<h3 class="text-center mark">My Daily Task</h3>
+<div class="row my-3  ">
+    {% for task in tasks%}
+  <div class="col-sm-3 mb-2 mb-sm-3 ">
+    
+    <div class="card d-flex flex-wrap">
+      <div class="card-body">
+        <h5 class="card-title">{{task.title}}</h5>
+        <p class="card-text">{{task.description}}</p>
+        <p class="card-text">Date: {{task.date}}</p>
+        <p class="card-text">Completed: {{task.is_completed}}</p>
+        {% if  task.is_completed == 'False' %}
+            <a href="{% url "edit" task.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url "delete" task.id %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+        
+      </div>
+    </div> 
+  </div>
+  {% endfor %}
+</div>
+ 
+
+{% endblock content%}
