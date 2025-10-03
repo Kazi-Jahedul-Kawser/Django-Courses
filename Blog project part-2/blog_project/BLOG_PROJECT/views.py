@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from posts.models import Post
 from categories.models import Category
+from django.contrib.auth.decorators import login_required
+@login_required
 def home(request, category_slug=None):
     post = Post.objects.all()
     categories = Category.objects.all()
