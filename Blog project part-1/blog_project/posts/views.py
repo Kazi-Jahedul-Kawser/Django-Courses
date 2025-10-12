@@ -29,12 +29,3 @@ def delete_post(request,id):
     post = Post.objects.get(pk=id)
     post.delete()
     return redirect("home")
-    # add_post = PostForm(instance = post)
-    # if request.method =='POST': 
-    #     add_post = PostForm(request.POST)
-    #     if add_post.is_valid():
-    #         add_post.save()
-    #         return redirect("home")
-    # else:
-    #     add_post = PostForm(instance = post)
-    # return render(request,'add_post.html', {'add_post': add_post})    
